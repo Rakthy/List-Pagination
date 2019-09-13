@@ -32,6 +32,7 @@ body {
   border: 1px solid #eaeaea;
   padding: 8px 15px;
   font-size: 14px;
+  outline: none;
 }
 
 .page-header .student-search button {
@@ -41,6 +42,7 @@ body {
   font-size: 14px;
   background-color: #4ba6c3;
   color: #fff;
+  outline: none;
 }
 
 .student-list {
@@ -97,11 +99,13 @@ body {
 
 .pagination {
   margin: 40px 0 0 0;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .pagination li {
   display: inline;
+  width: 100%;
 }
 
 .pagination li a {
