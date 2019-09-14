@@ -43,6 +43,7 @@ body {
   background-color: #4ba6c3;
   color: #fff;
   outline: none;
+  cursor: pointer;
 }
 
 .student-list {

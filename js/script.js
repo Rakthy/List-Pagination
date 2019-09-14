@@ -4,9 +4,12 @@ FSJS project 2 - List Filter and Pagination
 ******************************************/
 
 //global  variables//
+const h3 = document.querySelectorAll("h3");
+const pageHeader = document.querySelector(".page-header");
 const page = document.querySelector(".page");
 const studentItems = document.querySelectorAll(".student-item");
 let perPage = 10;
+const ul = document.querySelector(".student-list");
 
 //function to show list of students//
 const showPage = (list, page) => {
@@ -56,3 +59,36 @@ const appendPageLinks = list => {
   }
 };
 appendPageLinks(studentItems);
+
+const div = document.createElement("div");
+div.className = "student-search";
+const input = document.createElement("input");
+input.placeHolder = "Search for Students";
+input.type = "text";
+const button = document.createElement("button");
+const h4 = document.createElement("h4");
+button.textContent = "search";
+pageHeader.appendChild(div);
+div.appendChild(input);
+div.appendChild(button);
+div.appendChild(h4);
+
+input.addEventListener("keyup", () => {
+  searchStudent(input, studentItems);
+});
+
+button.addEventListener("submit", () => {
+  e.preventDefault;
+  searchStudent(input, studentItems);
+});
+
+const searchStudent = (searchInput, name) => {
+  for (let i = 0; i < name.length; i++) {
+    name[i].style.display = "none";
+    const searchInput = input.value.toUpperCase();
+    const student = name[i].querySelector("h3").textContent.toUpperCase();
+    if (searchInput !== 0 && student.includes(searchInput)) {
+      name[i].style.display = "";
+    }
+  }
+};
