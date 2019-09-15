@@ -41,6 +41,7 @@ const appendPageLinks = list => {
     //for each page add a page number from the iteration of "i" for anchor tags//
     a.textContent = i + 1;
     ul.appendChild(li);
+    ul.className = "page-links";
     li.appendChild(a);
     a.href = "#";
     const anchor = document.querySelectorAll("a");
@@ -77,18 +78,25 @@ input.addEventListener("keyup", () => {
   searchStudent(input, studentItems);
 });
 
-button.addEventListener("submit", () => {
-  e.preventDefault;
+button.addEventListener("submit", e => {
   searchStudent(input, studentItems);
 });
 
 const searchStudent = (searchInput, name) => {
+  const result = [];
   for (let i = 0; i < name.length; i++) {
     name[i].style.display = "none";
     const searchInput = input.value.toUpperCase();
     const student = name[i].querySelector("h3").textContent.toUpperCase();
     if (searchInput !== 0 && student.includes(searchInput)) {
       name[i].style.display = "";
+      result.push(name[i]);
     }
+  }
+  if (result.length === 0) {
+    page.innerHTML = "There were no results, please try again.";
+    setTimeout(() => {
+      window.location.reload();
+    }, 2500);
   }
 };
